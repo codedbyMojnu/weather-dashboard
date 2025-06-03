@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  /* Define custom colors */
+  --color-primary: #b4d429;
+  --color-dark: #171923;
+  --color-light: #fff;
+  --color-body: #1d1e28;
+
+  /* Define container properties */
+  --container-center: true;
+  --container-padding: 1.25rem;
+}
