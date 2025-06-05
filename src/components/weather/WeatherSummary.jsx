@@ -5,11 +5,11 @@ export default function Location({ weatherData }) {
         <img src="./assets/cloud.svg" alt="cloud" />
         <div className="max-md:flex items-center max-md:space-x-4">
           <h1 className="text-[60px] lg:text-[80px] xl:text-[100px] leading-none md:mb-4">
-            {(weatherData?.main?.temp - 273.15).toFixed(1) + "°"}
+            {weatherData?.tempreture}°
           </h1>
           <div className="flex items-center space-x-4 md:mb-4">
             <img src="./assets/pin.svg" />
-            <h2 className="text-2xl lg:text-[50px]">{weatherData?.name}</h2>
+            <h2 className="text-2xl lg:text-[50px]">{weatherData?.location}</h2>
           </div>
         </div>
       </div>

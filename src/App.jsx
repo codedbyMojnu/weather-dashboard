@@ -9,6 +9,8 @@ import useFetchWeatherData from "./hooks/useFetchWeatherData";
 export default function App() {
   const [searchText, setSearchText] = useState("");
 
+  console.log(searchText);
+
   function handleAreaSearch(area) {
     if (area.trim().length > 3) {
       setSearchText(area);

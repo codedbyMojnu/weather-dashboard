@@ -8,8 +8,11 @@ export default function FavoriteModal() {
       <ul className="space-y-2 mt-4 *:py-2 *:px-4 *:cursor-pointer">
         {areaNames?.length > 0
           ? areaNames.map((area) => (
-              <li key={area} className="hover:bg-gray-200">
-                {area}
+              <li key={area?.location} className="hover:bg-gray-200">
+                {area?.location}
+                <button className="cursor-pointer border m-4">
+                  Remove From Favorite
+                </button>
               </li>
             ))
           : "No Favorites Area. Select First."}

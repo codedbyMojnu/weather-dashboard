@@ -14,7 +14,7 @@ export default function Header({ onSearch }) {
     <header className="">
       <nav className="container flex items-center justify-between py-6">
         <Logo />
-        <div className="flex items-center gap-4 relative">
+        <div className="flex items-center gap-4 relative z-1">
           <SearchInput onSearch={onSearch} />
           <Favourite onToggle={handleFavouriteClick} />
           {showModal && <FavoriteModal />}

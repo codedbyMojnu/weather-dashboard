@@ -1,16 +1,44 @@
 import AddToFavourite from "./AddToFavourite";
-import Location from "./Location";
-import WeatherList from "./WeatherList";
+import WeatherCondition from "./WeatherCondition";
+import WeatherSummary from "./WeatherSummary";
 
 export default function Weather({ weatherData }) {
-  const weatherMainData = [];
-  for (let key in weatherData?.main) {
-    if (weatherMainData?.length < 6) {
-      weatherMainData.push({ [key]: weatherData?.main[key] });
-    }
-  }
+  const {
+    location,
+    climate,
+    headline,
+    tempreture,
+    maxTempreture,
+    minTempreture,
+    humidity,
+    cloudPercentege,
+    wind,
+    timezone,
+    time,
+    sunrise,
+    sunset,
+    latitude,
+    longitude,
+  } = weatherData;
 
-  console.log(weatherData);
+  const favoriteData = { location, latitude, longitude };
+  const weatherSummary = {
+    climate,
+    location,
+    tempreture,
+    timezone,
+    time,
+    sunrise,
+    sunset,
+  };
+  const weatherCondition = {
+    tempreture,
+    maxTempreture,
+    minTempreture,
+    humidity,
+    cloudPercentege,
+    wind,
+  };
   return (
     <main>
       <section>
@@ -22,19 +50,15 @@ export default function Weather({ weatherData }) {
             <div className="grid md:grid-cols-2 gap-10 md:gap-6">
               <div className="md:col-span-2">
                 <div className="flex items-center justify-end space-x-6">
-                  <AddToFavourite area_Name={weatherData?.name} />
+                  <AddToFavourite weatherData={favoriteData} />
                 </div>
               </div>
-              <Location weatherData={weatherData} />
+              <WeatherSummary weatherData={weatherSummary} />
               <div>
                 <p className="text-sm lg:text-lg font-bold uppercase mb-8">
-                  {weatherData?.weather[0]?.description}
+                  {headline}
                 </p>
-                <ul className="space-y-6 lg:space-y-6">
-                  {weatherMainData?.map((item, index) => (
-                    <WeatherList key={index} item={item} />
-                  ))}
-                </ul>
+                <WeatherCondition weatherData={weatherCondition} />
               </div>
             </div>
           </div>
